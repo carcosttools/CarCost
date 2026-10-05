@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#071019">
   <title>CarCost — About & Studio</title>
   <link rel="canonical" href="https://carcosttools.github.io/CarCost/studio.html">
-  <link rel="stylesheet" href="styles-v5-3.css">
+  <link rel="stylesheet" href="styles-v5-4.css">
 </head>
 <body>
 <header class="topbar">
@@ -61,15 +61,55 @@
       </ul>
     </div>
     <form class="card contact-form" id="leadForm">
-      <h3 data-i18n="contactTitle">Project contact</h3>
-      <p data-i18n="contactText">Use a public or business social account for initial contact. No payment information is required.</p>
-      <label><span data-i18n="leadName">Username / name</span><input id="leadName" maxlength="40" placeholder="Alex"></label>
-      <label><span data-i18n="leadPlatform">Social platform</span><select id="leadPlatform"><option>Instagram</option><option>TikTok</option><option>X / Twitter</option><option>Discord</option><option>Telegram</option><option>Other</option></select></label>
-      <label><span data-i18n="leadHandle">Public social username</span><input id="leadHandle" maxlength="80" placeholder="@yourusername"></label>
-      <button class="btn primary" type="submit" data-i18n="createRequest">Create contact request</button>
-      <div id="leadResult" class="lead-result hidden"></div>
-      <small class="form-note" data-i18n="formNote">Never enter passwords, private information or payment details.</small>
+      <div class="contact-head">
+        <div>
+          <p class="eyebrow" data-i18n="contactEyebrow">CONTACT</p>
+          <h3 data-i18n="contactTitle">Project enquiry or general question</h3>
+        </div>
+        <span class="contact-badge" data-i18n="contactBadge">No account required</span>
+      </div>
+      <p data-i18n="contactText">Tell us how you would like us to contact you. You only need to provide the channels you are comfortable sharing.</p>
+
+      <div class="contact-grid">
+        <label class="full"><span data-i18n="leadName">Name</span><input id="leadName" name="name" maxlength="60" autocomplete="name" placeholder="Alex" required></label>
+
+        <label><span>Instagram</span><input id="leadInstagram" name="instagram" maxlength="80" placeholder="@username"></label>
+        <label><span>TikTok</span><input id="leadTikTok" name="tiktok" maxlength="80" placeholder="@username"></label>
+        <label class="full"><span data-i18n="leadEmail">Email</span><input id="leadEmail" name="email" type="email" maxlength="120" autocomplete="email" placeholder="name@example.com"></label>
+
+        <label class="full">
+          <span data-i18n="leadTopic">What would you like to discuss?</span>
+          <select id="leadTopic" name="topic">
+            <option value="project" data-i18n="topicProject">A website or web tool</option>
+            <option value="question" data-i18n="topicQuestion">A question about CarCost</option>
+            <option value="feedback" data-i18n="topicFeedback">Feedback or suggestion</option>
+            <option value="other" data-i18n="topicOther">Something else</option>
+          </select>
+        </label>
+
+        <label class="full">
+          <span data-i18n="leadMessage">Message</span>
+          <textarea id="leadMessage" name="message" maxlength="2000" rows="6" data-i18n-placeholder="messagePlaceholder" placeholder="Briefly describe your idea or question..." required></textarea>
+        </label>
+      </div>
+
+      <div class="contact-submit">
+        <button class="btn primary" type="submit" data-i18n="sendMessage">Send message</button>
+        <span class="form-status" id="leadStatus" aria-live="polite"></span>
+      </div>
+      <small class="form-note" data-i18n="formNote">Never enter passwords, banking details or other sensitive information.</small>
     </form>
+  </section>
+
+
+  <section class="shell response-note">
+    <div class="card response-card">
+      <div>
+        <p class="eyebrow" data-i18n="responseEyebrow">MESSAGES</p>
+        <h2 data-i18n="responseTitle">Questions and project enquiries in one place.</h2>
+      </div>
+      <p data-i18n="responseText">Once the form backend is connected, new ratings and messages can be delivered to your inbox. You can review the full submission and reply using the contact details the visitor chose to provide.</p>
+    </div>
   </section>
 
   <section class="shell info-grid">
@@ -94,6 +134,6 @@
 </main>
 
 <footer><div class="shell footer-inner"><span>© CarCost</span><a href="./" data-i18n="backCalculator">Back to calculator</a></div></footer>
-<script src="studio-v5-3.js"></script>
+<script src="studio-v5-4.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#071019">
   <title>CarCost — Real car ownership cost calculator</title>
   <link rel="canonical" href="https://carcosttools.github.io/CarCost/">
-  <link rel="stylesheet" href="styles-v5-3.css">
+  <link rel="stylesheet" href="styles-v5-4.css">
 </head>
 <body>
 <header class="topbar">
@@ -192,6 +192,32 @@
     </section>
   </section>
 
+
+  <section class="shell rating-section">
+    <div class="card rating-card">
+      <div class="rating-copy">
+        <span class="eyebrow" data-i18n="ratingEyebrow">QUICK FEEDBACK</span>
+        <h2 data-i18n="ratingTitle">How would you rate CarCost?</h2>
+        <p data-i18n="ratingText">A quick rating helps us improve the experience.</p>
+      </div>
+      <form id="ratingForm" class="rating-form">
+        <div class="stars" id="ratingStars" role="radiogroup" aria-label="Rate CarCost from 1 to 5 stars">
+          <button type="button" class="star" data-rating="1" aria-label="1 star">★</button>
+          <button type="button" class="star" data-rating="2" aria-label="2 stars">★</button>
+          <button type="button" class="star" data-rating="3" aria-label="3 stars">★</button>
+          <button type="button" class="star" data-rating="4" aria-label="4 stars">★</button>
+          <button type="button" class="star" data-rating="5" aria-label="5 stars">★</button>
+        </div>
+        <input type="hidden" id="ratingValue" name="rating" value="">
+        <textarea id="ratingComment" name="comment" maxlength="500" rows="3" data-i18n-placeholder="ratingPlaceholder" placeholder="Optional: tell us what could be better"></textarea>
+        <div class="rating-actions">
+          <button type="submit" class="btn secondary" data-i18n="sendRating">Send rating</button>
+          <span class="form-status" id="ratingStatus" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
   <section class="shell final-cta">
     <div class="card">
       <div>
@@ -214,6 +240,6 @@
   <button type="button" class="btn primary mobile-result-btn" id="mobileResultsBtn" data-i18n="viewResults">View results</button>
 </div>
 
-<script src="app-v5-3.js"></script>
+<script src="app-v5-4.js"></script>
 </body>
 </html>
