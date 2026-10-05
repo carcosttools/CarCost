@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="en" href="https://carcosttools.github.io/CarCost/?lang=en">
   <link rel="alternate" hreflang="el" href="https://carcosttools.github.io/CarCost/?lang=el">
   <link rel="alternate" hreflang="zh-CN" href="https://carcosttools.github.io/CarCost/?lang=zh-CN">
-  <link rel="stylesheet" href="styles-v4-2.css">
+  <link rel="stylesheet" href="styles-v4-3.css">
 </head>
 <body>
 <header class="site-header">
@@ -30,8 +30,8 @@
 <main class="shell">
   <section class="hero">
     <p class="kicker" data-i18n="kicker">CAR COST CALCULATOR</p>
-    <h1 data-i18n-html="heroTitle">Know what your car <em>really</em> costs.</h1>
-    <p class="hero-copy" data-i18n="heroCopy">Calculate one car or compare two side by side — financing, fuel or electricity, insurance, maintenance and resale value included.</p>
+    <h1 data-i18n-html="heroTitle">Understand what your car <em>really</em> costs.</h1>
+    <p class="hero-copy" data-i18n="heroCopy">Calculate one car or compare two side by side. See the real impact of financing, energy, insurance, maintenance and resale value in one clear estimate.</p>
     <div class="hero-trust">
       <span data-i18n="trust1">✓ No sign-up</span>
       <span data-i18n="trust2">✓ No bank details</span>
@@ -44,8 +44,8 @@
     <button type="button" class="mode-option active" id="singleMode" aria-pressed="true">
       <span class="mode-icon">1</span>
       <span class="mode-copy">
-        <strong data-i18n="singleModeTitle">One car</strong>
-        <small data-i18n="singleModeText">See its true monthly and 5-year cost</small>
+        <strong data-i18n="singleModeTitle">Calculate one car</strong>
+        <small data-i18n="singleModeText">See the estimated monthly and 5-year cost</small>
       </span>
       <span class="mode-check">✓</span>
     </button>
@@ -53,7 +53,7 @@
       <span class="mode-icon mode-icon-compare">A↔B</span>
       <span class="mode-copy">
         <strong data-i18n="compareModeTitle">Compare two cars</strong>
-        <small data-i18n="compareModeText">See which option costs less overall</small>
+        <small data-i18n="compareModeText">See which option may cost less over time</small>
       </span>
       <span class="mode-check">✓</span>
     </button>
@@ -82,7 +82,7 @@
       <label for="distanceUnit" data-i18n="distanceUnit">Distance</label>
       <select id="distanceUnit"><option value="km">Kilometres</option><option value="mi">Miles</option></select>
     </div>
-    <button id="exampleBtn" class="btn secondary" data-i18n="example">Try example</button>
+    <button id="exampleBtn" class="btn secondary" data-i18n="example">Try an example</button>
   </section>
 
   <section class="compare single-layout" id="compareArea">
@@ -102,7 +102,7 @@
         <div class="field energy-label"><label>Fuel price / litre</label><input id="a_energyPrice" type="number" min="0" step=".01" value="1.55"></div>
       </div>
       <details class="advanced">
-        <summary data-i18n="advanced">Advanced costs</summary>
+        <summary data-i18n="advanced">More costs</summary>
         <div class="advanced-grid">
           <div class="field"><label data-i18n="insurance">Insurance / year</label><input id="a_insurance" type="number" min="0" value="900"></div>
           <div class="field"><label data-i18n="maintenance">Maintenance / year</label><input id="a_maintenance" type="number" min="0" value="700"></div>
@@ -129,7 +129,7 @@
         <div class="field energy-label"><label>Fuel price / litre</label><input id="b_energyPrice" type="number" min="0" step=".01" value="1.55"></div>
       </div>
       <details class="advanced">
-        <summary data-i18n="advanced">Advanced costs</summary>
+        <summary data-i18n="advanced">More costs</summary>
         <div class="advanced-grid">
           <div class="field"><label data-i18n="insurance">Insurance / year</label><input id="b_insurance" type="number" min="0" value="1000"></div>
           <div class="field"><label data-i18n="maintenance">Maintenance / year</label><input id="b_maintenance" type="number" min="0" value="650"></div>
@@ -147,19 +147,19 @@
       <div class="result-column">
         <div class="result-label"><span class="badge badge-a">A</span><strong id="a_resultName">My car</strong></div>
         <div class="price-result" id="a_trueMonthly">—</div>
-        <div class="result-sub" data-i18n="avgMonthly">average ownership cost / month</div>
+        <div class="result-sub" data-i18n="avgMonthly">estimated ownership cost / month</div>
         <div class="mini-stats">
           <div><span data-i18n="fiveYear">5-year cost</span><strong id="a_fiveYear">—</strong></div>
-          <div><span data-i18n="cashMonthly">Monthly cash</span><strong id="a_cashMonthly">—</strong></div>
+          <div><span data-i18n="cashMonthly">Monthly outflow</span><strong id="a_cashMonthly">—</strong></div>
         </div>
       </div>
       <div class="result-column mode-hidden" id="resultBPanel">
         <div class="result-label"><span class="badge badge-b">B</span><strong id="b_resultName">Car B</strong></div>
         <div class="price-result" id="b_trueMonthly">—</div>
-        <div class="result-sub" data-i18n="avgMonthly">average ownership cost / month</div>
+        <div class="result-sub" data-i18n="avgMonthly">estimated ownership cost / month</div>
         <div class="mini-stats">
           <div><span data-i18n="fiveYear">5-year cost</span><strong id="b_fiveYear">—</strong></div>
-          <div><span data-i18n="cashMonthly">Monthly cash</span><strong id="b_cashMonthly">—</strong></div>
+          <div><span data-i18n="cashMonthly">Monthly outflow</span><strong id="b_cashMonthly">—</strong></div>
         </div>
       </div>
     </div>
@@ -172,8 +172,8 @@
   <section class="budget card">
     <div>
       <p class="section-kicker" data-i18n="optional">OPTIONAL</p>
-      <h2 data-i18n="budgetTitle">Can your budget handle it?</h2>
-      <p data-i18n="budgetCopy">Add your monthly income only if you want an affordability check.</p>
+      <h2 data-i18n="budgetTitle">How does this fit your budget?</h2>
+      <p data-i18n="budgetCopy">Optional: add your monthly income and expenses for a simple affordability check.</p>
     </div>
     <div class="budget-fields">
       <div class="field"><label data-i18n="income">Take-home income / month</label><input id="income" type="number" min="0" step="100" value="0" placeholder="3000"></div>
@@ -243,13 +243,13 @@
   </dialog>
 
   <section class="simple-trust">
-    <h2 data-i18n="trustTitle">Simple, private, transparent.</h2>
-    <p data-i18n="trustCopy">No account, no payment details, no CarCost database storing your calculator inputs. Results are estimates, not financial advice.</p>
+    <h2 data-i18n="trustTitle">Simple to use. Clear about your data.</h2>
+    <p data-i18n="trustCopy">No account or payment details are required. Your calculator inputs stay in your browser. Results are estimates for planning, not financial advice.</p>
     <div class="footer-links"><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="https://github.com/carcosttools/CarCost/issues" target="_blank" rel="noopener">Feedback</a></div>
   </section>
 </main>
 
 <footer><div class="shell">© CarCost</div></footer>
-<script src="app-v4-2.js"></script>
+<script src="app-v4-3.js"></script>
 </body>
 </html>
