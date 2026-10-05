@@ -5,10 +5,29 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Compare the real 5-year cost and affordability of two cars, including financing, energy, insurance, maintenance, taxes and resale value.">
   <meta name="theme-color" content="#0b1020">
-  <title>CarCost — Compare the real cost of cars</title>
-  <link rel="stylesheet" href="styles-v2.css">
+  <title>CarCost — Compare the True Cost of Owning a Car</title>
+  <link rel="canonical" href="https://carcosttools.github.io/CarCost/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CarCost — Compare the True Cost of Owning a Car">
+  <meta property="og:description" content="Free car ownership calculator. Compare financing, fuel or electricity, insurance, maintenance, taxes and resale value over five years.">
+  <meta property="og:url" content="https://carcosttools.github.io/CarCost/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CarCost — Compare the True Cost of Owning a Car">
+  <meta name="twitter:description" content="Compare the real five-year cost and affordability of two cars. Free, no account required.">
+  <link rel="stylesheet" href="styles-v3.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"CarCost","url":"https://carcosttools.github.io/CarCost/","applicationCategory":"FinanceApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Free car ownership and affordability calculator for comparing the estimated five-year cost of two cars."}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What does CarCost calculate?","acceptedAnswer":{"@type":"Answer","text":"CarCost estimates financing, energy, insurance, maintenance, taxes, parking, resale value and five-year ownership cost."}},
+    {"@type":"Question","name":"Is CarCost free?","acceptedAnswer":{"@type":"Answer","text":"Yes. CarCost is free to use and does not require an account."}},
+    {"@type":"Question","name":"Does CarCost work for electric cars?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select EV to enter electricity consumption and electricity price instead of fuel economy and fuel price."}}
+  ]}
+  </script>
 </head>
-<body>
+<body id="top">
 <header class="topbar">
   <div class="wrap nav">
     <a class="brand" href="./">CarCost</a>
@@ -25,6 +44,16 @@
   </section>
 
   <section class="card settings">
+    <label>Region preset
+      <select id="regionPreset">
+        <option value="custom">Custom</option>
+        <option value="eu">Europe</option>
+        <option value="uk">United Kingdom</option>
+        <option value="us">United States</option>
+        <option value="ca">Canada</option>
+        <option value="au">Australia</option>
+      </select>
+    </label>
     <label>Currency
       <select id="currency">
         <option value="EUR">EUR (€)</option><option value="USD">USD ($)</option>
@@ -122,6 +151,26 @@
     </div>
   </section>
 
+
+  <section class="info-section">
+    <p class="eyebrow">HOW IT WORKS</p>
+    <h2>One purchase price can hide thousands in extra cost.</h2>
+    <div class="info-grid">
+      <article class="card info-card"><span>01</span><h3>Enter both cars</h3><p>Add the price, financing terms, annual distance and running costs for each option.</p></article>
+      <article class="card info-card"><span>02</span><h3>Compare the full picture</h3><p>CarCost combines financing, energy, insurance, maintenance, taxes, parking and estimated resale value.</p></article>
+      <article class="card info-card"><span>03</span><h3>Check affordability</h3><p>Use your take-home income and other monthly expenses to see how much pressure each car could put on your budget.</p></article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <p class="eyebrow">FAQ</p>
+    <h2>Common questions</h2>
+    <details class="card faq"><summary>What does “5-year ownership cost” mean?</summary><p>It is an estimate of the money consumed by owning the car for five years, including financing and running costs, minus the estimated resale value at the end of year five.</p></details>
+    <details class="card faq"><summary>Why is monthly cash commitment different from true monthly ownership cost?</summary><p>Cash commitment shows what leaves your budget each month right now. True monthly ownership cost spreads the estimated five-year economic cost across 60 months.</p></details>
+    <details class="card faq"><summary>Can I compare an EV with a petrol or diesel car?</summary><p>Yes. Select EV for one car and petrol, diesel or hybrid for the other. EV mode uses electricity consumption and electricity price.</p></details>
+    <details class="card faq"><summary>Are the results exact?</summary><p>No. They are planning estimates. Real insurance, repairs, taxes, energy use, loan terms and resale prices vary by driver, vehicle and location.</p></details>
+  </section>
+
   <section class="card methodology">
     <h2>How CarCost calculates it</h2>
     <p><strong>Monthly cash commitment</strong> is the loan payment plus recurring running costs. <strong>Five-year ownership cost</strong> counts the down payment, loan payments made in the first 60 months, any remaining loan balance at month 60, and five years of running costs, then subtracts the estimated resale value. This avoids counting depreciation on top of the full purchase price.</p>
@@ -129,7 +178,7 @@
   </section>
 </main>
 
-<footer><div class="wrap">CarCost · Free independent calculator · No account required</div></footer>
-<script src="app-v2.js"></script>
+<footer><div class="wrap">CarCost · Free independent calculator · No account required · <a href="#top">Back to top</a></div></footer>
+<script src="app-v3.js"></script>
 </body>
 </html>

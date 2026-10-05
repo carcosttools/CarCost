@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carcosttools.github.io/CarCost/sitemap.xml
