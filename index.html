@@ -1,204 +1,135 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="CarCost helps you estimate the true monthly and long-term cost of owning a car." />
-  <title>CarCost — Know the real cost of your car</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Compare the real 5-year cost and affordability of two cars, including financing, energy, insurance, maintenance, taxes and resale value.">
+  <meta name="theme-color" content="#0b1020">
+  <title>CarCost — Compare the real cost of cars</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#">CarCost</a>
-      <span class="tagline">Know the real cost of your car.</span>
-    </div>
-  </header>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="./">CarCost</a>
+    <span class="tagline">Know the real cost of your car.</span>
+    <span class="free">100% free</span>
+  </div>
+</header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">FREE CAR OWNERSHIP CALCULATOR</p>
-        <h1>Can you really afford that car?</h1>
-        <p class="hero-copy">
-          Estimate financing, fuel, insurance, maintenance, taxes and depreciation.
-          See your true monthly cost and 5-year ownership cost in seconds.
-        </p>
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">CAR OWNERSHIP & AFFORDABILITY CALCULATOR</p>
+    <h1>Compare cars by what they <em>really</em> cost.</h1>
+    <p>Purchase price is only the beginning. Compare financing, fuel or electricity, insurance, maintenance, taxes and estimated resale value over five years.</p>
+  </section>
+
+  <section class="card settings">
+    <label>Currency
+      <select id="currency">
+        <option value="EUR">EUR (€)</option><option value="USD">USD ($)</option>
+        <option value="GBP">GBP (£)</option><option value="CAD">CAD (C$)</option>
+        <option value="AUD">AUD (A$)</option>
+      </select>
+    </label>
+    <label>Distance
+      <select id="distanceUnit"><option value="km">Kilometres</option><option value="mi">Miles</option></select>
+    </label>
+    <label>Monthly take-home income
+      <input id="income" type="number" min="0" step="100" value="3000">
+    </label>
+    <label>Other monthly expenses
+      <input id="otherExpenses" type="number" min="0" step="100" value="1500">
+    </label>
+    <button id="exampleBtn" class="btn secondary">Load example</button>
+    <button id="resetBtn" class="btn ghost">Reset</button>
+  </section>
+
+  <section class="compare-grid">
+    <article class="card car-card" data-car="a">
+      <div class="car-head"><span class="car-dot">A</span><input id="a_name" class="car-name" value="Car A" aria-label="Car A name"></div>
+      <div class="form-grid">
+        <label>Powertrain<select id="a_type"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>EV</option></select></label>
+        <label>Car price<input id="a_price" type="number" min="0" value="25000"></label>
+        <label>Down payment<input id="a_down" type="number" min="0" value="5000"></label>
+        <label>Loan APR (%)<input id="a_apr" type="number" min="0" step=".1" value="5.5"></label>
+        <label>Loan term (years)<input id="a_years" type="number" min="1" max="10" value="5"></label>
+        <label class="distance-label">Distance / year<input id="a_distance" type="number" min="0" value="15000"></label>
+        <label class="eff-label">Fuel economy (L/100 km)<input id="a_eff" type="number" min="0" step=".1" value="7"></label>
+        <label class="energy-label">Fuel price / litre<input id="a_energyPrice" type="number" min="0" step=".01" value="1.55"></label>
+        <label>Insurance / year<input id="a_insurance" type="number" min="0" value="900"></label>
+        <label>Maintenance / year<input id="a_maintenance" type="number" min="0" value="700"></label>
+        <label>Tax & registration / year<input id="a_tax" type="number" min="0" value="300"></label>
+        <label>Parking & tolls / year<input id="a_parking" type="number" min="0" value="300"></label>
+        <label>Estimated value after 5 years (%)<input id="a_residual" type="number" min="0" max="100" value="55"></label>
       </div>
-    </section>
+    </article>
 
-    <section class="toolbar card">
-      <div class="field compact">
-        <label for="currency">Currency</label>
-        <select id="currency">
-          <option value="EUR">EUR (€)</option>
-          <option value="USD">USD ($)</option>
-          <option value="GBP">GBP (£)</option>
-          <option value="CAD">CAD (C$)</option>
-          <option value="AUD">AUD (A$)</option>
-        </select>
+    <article class="card car-card" data-car="b">
+      <div class="car-head"><span class="car-dot">B</span><input id="b_name" class="car-name" value="Car B" aria-label="Car B name"></div>
+      <div class="form-grid">
+        <label>Powertrain<select id="b_type"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>EV</option></select></label>
+        <label>Car price<input id="b_price" type="number" min="0" value="32000"></label>
+        <label>Down payment<input id="b_down" type="number" min="0" value="6000"></label>
+        <label>Loan APR (%)<input id="b_apr" type="number" min="0" step=".1" value="5.5"></label>
+        <label>Loan term (years)<input id="b_years" type="number" min="1" max="10" value="5"></label>
+        <label class="distance-label">Distance / year<input id="b_distance" type="number" min="0" value="15000"></label>
+        <label class="eff-label">Fuel economy (L/100 km)<input id="b_eff" type="number" min="0" step=".1" value="5.5"></label>
+        <label class="energy-label">Fuel price / litre<input id="b_energyPrice" type="number" min="0" step=".01" value="1.55"></label>
+        <label>Insurance / year<input id="b_insurance" type="number" min="0" value="1000"></label>
+        <label>Maintenance / year<input id="b_maintenance" type="number" min="0" value="650"></label>
+        <label>Tax & registration / year<input id="b_tax" type="number" min="0" value="300"></label>
+        <label>Parking & tolls / year<input id="b_parking" type="number" min="0" value="300"></label>
+        <label>Estimated value after 5 years (%)<input id="b_residual" type="number" min="0" max="100" value="55"></label>
       </div>
+    </article>
+  </section>
 
-      <div class="field compact">
-        <label for="distanceUnit">Distance</label>
-        <select id="distanceUnit">
-          <option value="km">Kilometres</option>
-          <option value="mi">Miles</option>
-        </select>
-      </div>
-
-      <button id="loadExample" class="secondary" type="button">Load example</button>
-      <button id="resetForm" class="ghost" type="button">Reset</button>
-    </section>
-
-    <div class="layout">
-      <section class="card form-card">
-        <h2>1. Car & financing</h2>
-
-        <div class="grid two">
-          <div class="field">
-            <label for="carPrice">Car price</label>
-            <input id="carPrice" type="number" min="0" step="100" value="25000" />
-          </div>
-          <div class="field">
-            <label for="downPayment">Down payment</label>
-            <input id="downPayment" type="number" min="0" step="100" value="5000" />
-          </div>
-          <div class="field">
-            <label for="apr">Loan APR (%)</label>
-            <input id="apr" type="number" min="0" max="100" step="0.1" value="5.5" />
-          </div>
-          <div class="field">
-            <label for="loanYears">Loan term (years)</label>
-            <input id="loanYears" type="number" min="1" max="10" step="1" value="5" />
-          </div>
-        </div>
-
-        <h2>2. Running costs</h2>
-
-        <div class="grid two">
-          <div class="field">
-            <label id="distanceLabel" for="distancePerYear">Distance per year (km)</label>
-            <input id="distancePerYear" type="number" min="0" step="500" value="15000" />
-          </div>
-          <div class="field">
-            <label id="efficiencyLabel" for="efficiency">Fuel economy (L/100 km)</label>
-            <input id="efficiency" type="number" min="0.1" step="0.1" value="7.0" />
-          </div>
-          <div class="field">
-            <label id="fuelPriceLabel" for="fuelPrice">Fuel price per litre</label>
-            <input id="fuelPrice" type="number" min="0" step="0.01" value="1.55" />
-          </div>
-          <div class="field">
-            <label for="insuranceYear">Insurance per year</label>
-            <input id="insuranceYear" type="number" min="0" step="50" value="900" />
-          </div>
-          <div class="field">
-            <label for="maintenanceYear">Maintenance per year</label>
-            <input id="maintenanceYear" type="number" min="0" step="50" value="700" />
-          </div>
-          <div class="field">
-            <label for="taxesYear">Taxes / registration per year</label>
-            <input id="taxesYear" type="number" min="0" step="25" value="300" />
-          </div>
-          <div class="field">
-            <label for="parkingYear">Parking / tolls per year</label>
-            <input id="parkingYear" type="number" min="0" step="50" value="300" />
-          </div>
-          <div class="field">
-            <label for="depreciation5">Estimated depreciation over 5 years (%)</label>
-            <input id="depreciation5" type="number" min="0" max="100" step="1" value="45" />
-          </div>
-        </div>
-
-        <h2>3. Affordability</h2>
-
-        <div class="grid two">
-          <div class="field">
-            <label for="incomeMonth">Monthly take-home income</label>
-            <input id="incomeMonth" type="number" min="0" step="100" value="2500" />
-          </div>
-          <div class="field">
-            <label for="otherExpensesMonth">Other monthly expenses</label>
-            <input id="otherExpensesMonth" type="number" min="0" step="100" value="1400" />
-          </div>
-        </div>
-
-        <button id="calculateBtn" class="primary" type="button">Calculate my real car cost</button>
-      </section>
-
-      <aside class="card results-card">
-        <p class="eyebrow">YOUR ESTIMATE</p>
-        <div class="headline-result">
-          <span>True monthly car cost</span>
-          <strong id="monthlyTotal">—</strong>
-        </div>
-
-        <div id="affordabilityBadge" class="badge neutral">Enter your numbers</div>
-        <p id="affordabilityText" class="muted"></p>
-
-        <div class="result-list">
-          <div><span>Loan payment</span><strong id="loanMonthly">—</strong></div>
-          <div><span>Fuel</span><strong id="fuelMonthly">—</strong></div>
-          <div><span>Insurance</span><strong id="insuranceMonthly">—</strong></div>
-          <div><span>Maintenance</span><strong id="maintenanceMonthly">—</strong></div>
-          <div><span>Taxes / registration</span><strong id="taxesMonthly">—</strong></div>
-          <div><span>Parking / tolls</span><strong id="parkingMonthly">—</strong></div>
-          <div><span>Depreciation</span><strong id="depreciationMonthly">—</strong></div>
-        </div>
-
-        <div class="summary-grid">
-          <div>
-            <span>Annual cost</span>
-            <strong id="annualTotal">—</strong>
-          </div>
-          <div>
-            <span>5-year cost</span>
-            <strong id="fiveYearTotal">—</strong>
-          </div>
-        </div>
-
-        <div class="bar-wrap">
-          <div class="bar-label">
-            <span>Car cost as % of income</span>
-            <strong id="incomeRatio">—</strong>
-          </div>
-          <div class="bar"><div id="incomeBar" class="bar-fill"></div></div>
-        </div>
-
-        <details class="formula-box">
-          <summary>How this estimate works</summary>
-          <p>
-            Financing uses a standard amortising-loan formula. Fuel is based on annual
-            distance, fuel economy and fuel price. Depreciation is spread evenly across
-            60 months for this first version.
-          </p>
-        </details>
-
-        <p class="disclaimer">
-          Educational estimate only. Actual costs vary by country, vehicle, lender,
-          insurance profile, taxes and driving habits.
-        </p>
-      </aside>
+  <section class="results">
+    <div class="section-title">
+      <div><p class="eyebrow">RESULTS</p><h2>Five-year comparison</h2></div>
+      <button id="shareBtn" class="btn secondary">Share result</button>
     </div>
 
-    <section class="card roadmap">
-      <p class="eyebrow">WHAT COMES NEXT</p>
-      <h2>Built to grow</h2>
-      <div class="roadmap-grid">
-        <div><strong>Compare cars</strong><span>Side-by-side total ownership costs.</span></div>
-        <div><strong>Country presets</strong><span>Local fuel, tax and currency defaults.</span></div>
-        <div><strong>Share result</strong><span>Create a link or image with your calculation.</span></div>
-        <div><strong>EV mode</strong><span>Electricity use, charging and battery assumptions.</span></div>
-      </div>
-    </section>
-  </main>
+    <div class="winner card" id="winner"></div>
 
-  <footer class="wrap footer">
-    <span>CarCost MVP</span>
-    <span>Free to use. No account required.</span>
-  </footer>
+    <div class="result-grid">
+      <article class="card result-card">
+        <h3 id="a_resultName">Car A</h3>
+        <div class="big" id="a_trueMonthly">—</div><div class="muted">average true ownership cost / month</div>
+        <div class="metrics">
+          <div><span>Monthly cash commitment</span><strong id="a_cashMonthly">—</strong></div>
+          <div><span>5-year ownership cost</span><strong id="a_fiveYear">—</strong></div>
+          <div><span>Estimated resale value</span><strong id="a_resale">—</strong></div>
+          <div><span>Car cash cost / income</span><strong id="a_ratio">—</strong></div>
+        </div>
+        <div class="score"><div><span>Affordability</span><strong id="a_score">—</strong></div><div class="track"><i id="a_scoreBar"></i></div><p id="a_status"></p></div>
+        <div class="breakdown" id="a_breakdown"></div>
+      </article>
 
-  <script src="app.js"></script>
+      <article class="card result-card">
+        <h3 id="b_resultName">Car B</h3>
+        <div class="big" id="b_trueMonthly">—</div><div class="muted">average true ownership cost / month</div>
+        <div class="metrics">
+          <div><span>Monthly cash commitment</span><strong id="b_cashMonthly">—</strong></div>
+          <div><span>5-year ownership cost</span><strong id="b_fiveYear">—</strong></div>
+          <div><span>Estimated resale value</span><strong id="b_resale">—</strong></div>
+          <div><span>Car cash cost / income</span><strong id="b_ratio">—</strong></div>
+        </div>
+        <div class="score"><div><span>Affordability</span><strong id="b_score">—</strong></div><div class="track"><i id="b_scoreBar"></i></div><p id="b_status"></p></div>
+        <div class="breakdown" id="b_breakdown"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="card methodology">
+    <h2>How CarCost calculates it</h2>
+    <p><strong>Monthly cash commitment</strong> is the loan payment plus recurring running costs. <strong>Five-year ownership cost</strong> counts the down payment, loan payments made in the first 60 months, any remaining loan balance at month 60, and five years of running costs, then subtracts the estimated resale value. This avoids counting depreciation on top of the full purchase price.</p>
+    <p class="fine">Estimates only. Actual financing, energy use, repairs, insurance, taxes and resale values vary. CarCost is not financial advice.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">CarCost · Free independent calculator · No account required</div></footer>
+<script src="app.js"></script>
 </body>
 </html>
