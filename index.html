@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="en" href="https://carcosttools.github.io/CarCost/?lang=en">
   <link rel="alternate" hreflang="el" href="https://carcosttools.github.io/CarCost/?lang=el">
   <link rel="alternate" hreflang="zh-CN" href="https://carcosttools.github.io/CarCost/?lang=zh-CN">
-  <link rel="stylesheet" href="styles-v4-1.css">
+  <link rel="stylesheet" href="styles-v4-2.css">
 </head>
 <body>
 <header class="site-header">
@@ -30,13 +30,33 @@
 <main class="shell">
   <section class="hero">
     <p class="kicker" data-i18n="kicker">CAR COST CALCULATOR</p>
-    <h1 data-i18n-html="heroTitle">Which car is <em>actually</em> cheaper?</h1>
-    <p class="hero-copy" data-i18n="heroCopy">Compare two cars in under a minute — financing, fuel or electricity, insurance, maintenance and resale value included.</p>
+    <h1 data-i18n-html="heroTitle">Know what your car <em>really</em> costs.</h1>
+    <p class="hero-copy" data-i18n="heroCopy">Calculate one car or compare two side by side — financing, fuel or electricity, insurance, maintenance and resale value included.</p>
     <div class="hero-trust">
       <span data-i18n="trust1">✓ No sign-up</span>
       <span data-i18n="trust2">✓ No bank details</span>
       <span data-i18n="trust3">✓ Runs in your browser</span>
     </div>
+  </section>
+
+
+  <section class="mode-picker" aria-label="Calculator mode">
+    <button type="button" class="mode-option active" id="singleMode" aria-pressed="true">
+      <span class="mode-icon">1</span>
+      <span class="mode-copy">
+        <strong data-i18n="singleModeTitle">One car</strong>
+        <small data-i18n="singleModeText">See its true monthly and 5-year cost</small>
+      </span>
+      <span class="mode-check">✓</span>
+    </button>
+    <button type="button" class="mode-option" id="compareMode" aria-pressed="false">
+      <span class="mode-icon mode-icon-compare">A↔B</span>
+      <span class="mode-copy">
+        <strong data-i18n="compareModeTitle">Compare two cars</strong>
+        <small data-i18n="compareModeText">See which option costs less overall</small>
+      </span>
+      <span class="mode-check">✓</span>
+    </button>
   </section>
 
   <section class="setup card">
@@ -65,11 +85,11 @@
     <button id="exampleBtn" class="btn secondary" data-i18n="example">Try example</button>
   </section>
 
-  <section class="compare">
+  <section class="compare single-layout" id="compareArea">
     <article class="car-card card" data-car="a">
       <div class="car-top">
         <span class="badge badge-a">A</span>
-        <input id="a_name" class="car-name" value="Car A" aria-label="Car A name">
+        <input id="a_name" class="car-name" value="My car" aria-label="Car A name">
       </div>
       <div class="quick-grid">
         <div class="field"><label data-i18n="powertrain">Powertrain</label><select id="a_type"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>EV</option></select></div>
@@ -93,7 +113,7 @@
       </details>
     </article>
 
-    <article class="car-card card" data-car="b">
+    <article class="car-card card car-b-panel mode-hidden" id="carBPanel" data-car="b">
       <div class="car-top">
         <span class="badge badge-b">B</span>
         <input id="b_name" class="car-name" value="Car B" aria-label="Car B name">
@@ -122,10 +142,10 @@
   </section>
 
   <section class="results card" id="results">
-    <div class="winner" id="winner"></div>
-    <div class="result-grid">
+    <div class="winner mode-hidden" id="winner"></div>
+    <div class="result-grid single-layout" id="resultGrid">
       <div class="result-column">
-        <div class="result-label"><span class="badge badge-a">A</span><strong id="a_resultName">Car A</strong></div>
+        <div class="result-label"><span class="badge badge-a">A</span><strong id="a_resultName">My car</strong></div>
         <div class="price-result" id="a_trueMonthly">—</div>
         <div class="result-sub" data-i18n="avgMonthly">average ownership cost / month</div>
         <div class="mini-stats">
@@ -133,7 +153,7 @@
           <div><span data-i18n="cashMonthly">Monthly cash</span><strong id="a_cashMonthly">—</strong></div>
         </div>
       </div>
-      <div class="result-column">
+      <div class="result-column mode-hidden" id="resultBPanel">
         <div class="result-label"><span class="badge badge-b">B</span><strong id="b_resultName">Car B</strong></div>
         <div class="price-result" id="b_trueMonthly">—</div>
         <div class="result-sub" data-i18n="avgMonthly">average ownership cost / month</div>
@@ -230,6 +250,6 @@
 </main>
 
 <footer><div class="shell">© CarCost</div></footer>
-<script src="app-v4-1.js"></script>
+<script src="app-v4-2.js"></script>
 </body>
 </html>
