@@ -6,7 +6,7 @@
   <title>Privacy — CarCost</title>
   <meta name="description" content="CarCost privacy information.">
   <link rel="canonical" href="https://carcosttools.github.io/CarCost/privacy.html">
-  <link rel="stylesheet" href="styles-v3-1.css">
+  <link rel="stylesheet" href="styles-v3-2.css">
 </head>
 <body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="./">CarCost</a><span class="tagline">Privacy</span></div></header>
@@ -25,5 +25,24 @@
   <p><a class="text-link" href="./">← Back to calculator</a></p>
 </main>
 <footer><div class="wrap">CarCost · <a href="about.html">About</a> · <a href="https://github.com/carcosttools/CarCost/issues" target="_blank" rel="noopener">Feedback</a></div></footer>
-</body>
+<script>
+const pageTranslations={"en": ["PRIVACY", "Simple by design.", "CarCost does not require an account, password, payment card or banking information.", "Calculator inputs", "The calculator runs in your browser. The values you enter are not sent to a CarCost database. Shareable result links can contain values from the calculator in the URL, so only share a result link if you are comfortable sharing those values.", "Hosting", "CarCost is currently hosted on GitHub Pages. GitHub may process technical information needed to serve the website according to its own policies.", "Analytics and advertising", "CarCost currently does not use its own analytics, advertising trackers or advertising cookies. If this changes, this page should be updated before those features are enabled.", "Feedback", "If you choose to submit feedback through GitHub, the information you provide there is handled through GitHub.", "← Back to calculator"], "el": ["ΑΠΟΡΡΗΤΟ", "Απλό από τον σχεδιασμό.", "Το CarCost δεν απαιτεί λογαριασμό, κωδικό, κάρτα πληρωμής ή τραπεζικά στοιχεία.", "Στοιχεία υπολογιστή", "Ο υπολογιστής λειτουργεί στον browser σου. Οι τιμές που εισάγεις δεν αποστέλλονται σε βάση δεδομένων του CarCost. Τα κοινοποιήσιμα links αποτελεσμάτων μπορεί να περιέχουν τιμές του υπολογιστή στο URL, οπότε κοινοποίησέ τα μόνο αν είσαι άνετα με αυτό.", "Φιλοξενία", "Το CarCost φιλοξενείται αυτή τη στιγμή στο GitHub Pages. Το GitHub μπορεί να επεξεργάζεται τεχνικές πληροφορίες που απαιτούνται για την προβολή του site σύμφωνα με τις δικές του πολιτικές.", "Analytics και διαφημίσεις", "Το CarCost δεν χρησιμοποιεί αυτή τη στιγμή δικά του analytics, διαφημιστικά trackers ή διαφημιστικά cookies. Αν αυτό αλλάξει, η σελίδα θα πρέπει να ενημερωθεί πριν ενεργοποιηθούν τέτοιες λειτουργίες.", "Feedback", "Αν επιλέξεις να στείλεις feedback μέσω GitHub, οι πληροφορίες που παρέχεις εκεί διαχειρίζονται μέσω GitHub.", "← Πίσω στον υπολογιστή"], "zh-CN": ["隐私", "从设计上保持简单。", "CarCost 不要求账户、密码、支付卡或银行信息。", "计算器输入", "计算器在你的浏览器中运行。你输入的数值不会发送到 CarCost 数据库。可分享的结果链接可能会把部分计算数据放在 URL 中，因此请仅在你愿意分享这些数据时发送结果链接。", "托管", "CarCost 目前托管在 GitHub Pages。GitHub 可能会根据其自身政策处理提供网站服务所需的技术信息。", "分析与广告", "CarCost 目前不使用自有分析工具、广告追踪器或广告 Cookie。如果未来发生变化，应在启用前先更新此页面。", "反馈", "如果你选择通过 GitHub 提交反馈，你在那里提供的信息将由 GitHub 处理。", "← 返回计算器"]};
+function applyPageLang(lang){
+ if(!pageTranslations[lang]) lang="en";
+ document.documentElement.lang=lang; localStorage.setItem("carcost_lang",lang);
+ document.getElementById("language").value=lang;
+ document.getElementById("subTag").textContent=lang==="el"?"Μάθε το πραγματικό κόστος του αυτοκινήτου σου.":lang==="zh-CN"?"了解你的汽车真实成本。":"Know the real cost of your car.";
+ const t=pageTranslations[lang];
+ const main=document.querySelector("main");
+ const els=[...main.querySelectorAll(".eyebrow,h1,h2,p:not(.eyebrow)")];
+ let ti=0;
+ for(const el of els){
+   if(el.querySelector("a")){ if(t[t.length-1]) el.querySelector("a").textContent=t[t.length-1]; continue; }
+   if(ti<t.length-1) el.textContent=t[ti++];
+ }
+ const u=new URL(location.href);u.searchParams.set("lang",lang);history.replaceState(null,"",u);
+}
+document.getElementById("language").addEventListener("change",e=>applyPageLang(e.target.value));
+const q=new URLSearchParams(location.search).get("lang");applyPageLang(q||localStorage.getItem("carcost_lang")||"en");
+</script></body>
 </html>

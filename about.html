@@ -6,10 +6,10 @@
   <title>About CarCost</title>
   <meta name="description" content="Learn how CarCost works and what its car ownership estimates mean.">
   <link rel="canonical" href="https://carcosttools.github.io/CarCost/about.html">
-  <link rel="stylesheet" href="styles-v3-1.css">
+  <link rel="stylesheet" href="styles-v3-2.css">
 </head>
 <body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="./">CarCost</a><span class="tagline">Know the real cost of your car.</span></div></header>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="./">CarCost</a><span class="tagline" id="subTag">Know the real cost of your car.</span><div class="lang-wrap"><select id="language" class="lang-select" aria-label="Language"><option value="en">English</option><option value="el">Ελληνικά</option><option value="zh-CN">中文</option></select></div></div></header>
 <main class="wrap legal-page">
   <p class="eyebrow">ABOUT</p>
   <h1>CarCost is a free car ownership comparison tool.</h1>
@@ -23,5 +23,24 @@
   <p><a class="text-link" href="./">← Back to calculator</a></p>
 </main>
 <footer><div class="wrap">CarCost · <a href="privacy.html">Privacy</a> · <a href="https://github.com/carcosttools/CarCost/issues" target="_blank" rel="noopener">Feedback</a></div></footer>
-</body>
+<script>
+const pageTranslations={"en": ["ABOUT", "CarCost is a free car ownership comparison tool.", "It helps people compare two cars using financing, fuel or electricity, insurance, maintenance, taxes, parking and estimated resale value.", "Why it exists", "A purchase price alone does not show the real cost of owning a car. CarCost brings the main cost categories into one comparison so users can make a more informed estimate.", "How results are calculated", "CarCost uses the values you enter. Monthly cash commitment includes loan payments and recurring running costs. Five-year ownership cost includes the down payment, loan payments made during the first 60 months, any remaining loan balance at month 60, five years of running costs, and then subtracts the estimated resale value.", "Important limitation", "CarCost provides planning estimates only. Real fuel use, electricity use, repairs, insurance, tax, finance rates and resale values vary. CarCost is not financial advice.", "← Back to calculator"], "el": ["ΣΧΕΤΙΚΑ", "Το CarCost είναι ένα δωρεάν εργαλείο σύγκρισης κόστους ιδιοκτησίας αυτοκινήτου.", "Βοηθά τους χρήστες να συγκρίνουν δύο αυτοκίνητα με βάση χρηματοδότηση, καύσιμα ή ηλεκτρική ενέργεια, ασφάλιση, συντήρηση, φόρους, στάθμευση και εκτιμώμενη μεταπωλητική αξία.", "Γιατί δημιουργήθηκε", "Η τιμή αγοράς από μόνη της δεν δείχνει το πραγματικό κόστος ιδιοκτησίας. Το CarCost συγκεντρώνει τις βασικές κατηγορίες κόστους σε μία σύγκριση.", "Πώς υπολογίζονται τα αποτελέσματα", "Το CarCost χρησιμοποιεί τις τιμές που εισάγεις. Η μηνιαία ταμειακή επιβάρυνση περιλαμβάνει δόση δανείου και επαναλαμβανόμενα λειτουργικά έξοδα. Το κόστος πενταετίας περιλαμβάνει προκαταβολή, πληρωμές δανείου στους πρώτους 60 μήνες, τυχόν υπόλοιπο δανείου, πέντε χρόνια λειτουργικών εξόδων και αφαιρεί την εκτιμώμενη αξία μεταπώλησης.", "Σημαντικός περιορισμός", "Το CarCost παρέχει μόνο εκτιμήσεις σχεδιασμού. Η πραγματική κατανάλωση, οι επισκευές, η ασφάλιση, οι φόροι, τα επιτόκια και οι αξίες μεταπώλησης διαφέρουν. Δεν αποτελεί χρηματοοικονομική συμβουλή.", "← Πίσω στον υπολογιστή"], "zh-CN": ["关于", "CarCost 是一个免费的汽车持有成本比较工具。", "它帮助用户通过融资、燃油或电费、保险、保养、税费、停车以及预计转售价值来比较两辆车。", "为什么创建它", "购车价格本身无法反映真实持车成本。CarCost 把主要成本项目放在同一处比较，帮助用户做出更清晰的估算。", "结果如何计算", "CarCost 使用你输入的数据。每月现金支出包括贷款付款和经常性运行成本。五年持有成本包括首付、前 60 个月的贷款付款、60 个月时剩余贷款余额、五年的运行成本，并减去预计转售价值。", "重要说明", "CarCost 仅提供规划估算。实际能耗、维修、保险、税费、融资利率和转售价值会有所不同。CarCost 不构成财务建议。", "← 返回计算器"]};
+function applyPageLang(lang){
+ if(!pageTranslations[lang]) lang="en";
+ document.documentElement.lang=lang; localStorage.setItem("carcost_lang",lang);
+ document.getElementById("language").value=lang;
+ document.getElementById("subTag").textContent=lang==="el"?"Μάθε το πραγματικό κόστος του αυτοκινήτου σου.":lang==="zh-CN"?"了解你的汽车真实成本。":"Know the real cost of your car.";
+ const t=pageTranslations[lang];
+ const main=document.querySelector("main");
+ const els=[...main.querySelectorAll(".eyebrow,h1,h2,p:not(.eyebrow)")];
+ let ti=0;
+ for(const el of els){
+   if(el.querySelector("a")){ if(t[t.length-1]) el.querySelector("a").textContent=t[t.length-1]; continue; }
+   if(ti<t.length-1) el.textContent=t[ti++];
+ }
+ const u=new URL(location.href);u.searchParams.set("lang",lang);history.replaceState(null,"",u);
+}
+document.getElementById("language").addEventListener("change",e=>applyPageLang(e.target.value));
+const q=new URLSearchParams(location.search).get("lang");applyPageLang(q||localStorage.getItem("carcost_lang")||"en");
+</script></body>
 </html>
