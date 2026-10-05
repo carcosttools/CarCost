@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="About CarCost, our approach, privacy principles and project requests.">
+  <meta name="theme-color" content="#071019">
+  <title>CarCost — About & Studio</title>
+  <link rel="canonical" href="https://carcosttools.github.io/CarCost/studio.html">
+  <link rel="stylesheet" href="styles-v5.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="shell nav">
+    <a class="brand" href="./">CarCost</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="./" data-i18n="navCalculator">Calculator</a>
+      <a class="active" href="studio.html" data-i18n="navStudio">About & Studio</a>
+    </nav>
+    <select id="language" class="language" aria-label="Language">
+      <option value="en">EN</option><option value="el">EL</option><option value="zh-CN">中文</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <section class="shell studio-hero">
+    <p class="eyebrow" data-i18n="studioEyebrow">ABOUT CARCOST</p>
+    <h1 data-i18n-html="studioHero">Simple tools. <em>Clear decisions.</em></h1>
+    <p data-i18n="studioIntro">CarCost started with one idea: useful calculators should feel simple, trustworthy and easy to understand.</p>
+  </section>
+
+  <section class="shell values-grid">
+    <article class="card value-card"><span>01</span><h2 data-i18n="value1Title">Useful first</h2><p data-i18n="value1Text">We focus on solving one clear problem instead of adding unnecessary features.</p></article>
+    <article class="card value-card"><span>02</span><h2 data-i18n="value2Title">Clear by design</h2><p data-i18n="value2Text">Good tools should explain the result without overwhelming the user.</p></article>
+    <article class="card value-card"><span>03</span><h2 data-i18n="value3Title">Trust matters</h2><p data-i18n="value3Text">No fake promises. No hidden data collection. No confusing sales tricks.</p></article>
+  </section>
+
+  <section class="shell process-section">
+    <div class="section-title">
+      <p class="eyebrow" data-i18n="methodEyebrow">HOW WE WORK</p>
+      <h2 data-i18n="methodTitle">From idea to first prototype.</h2>
+    </div>
+    <div class="process-line">
+      <div><span>1</span><strong data-i18n="p1">You explain the problem</strong><small data-i18n="p1s">A short description is enough.</small></div>
+      <div><span>2</span><strong data-i18n="p2">We shape the simplest useful version</strong><small data-i18n="p2s">We remove what is not needed.</small></div>
+      <div><span>3</span><strong data-i18n="p3">We build a small prototype</strong><small data-i18n="p3s">Selected early projects can start free.</small></div>
+      <div><span>4</span><strong data-i18n="p4">You decide what happens next</strong><small data-i18n="p4s">Continue only if the work is valuable to you.</small></div>
+    </div>
+  </section>
+
+  <section class="shell studio-contact">
+    <div class="card contact-copy">
+      <p class="eyebrow" data-i18n="buildEyebrow">BUILD WITH US</p>
+      <h2 data-i18n="buildTitle">Have an idea for a useful web tool?</h2>
+      <p data-i18n="buildText">For a limited number of early projects, we can create a small first prototype at no cost. You review the quality first. If you want to continue, future work can be paid.</p>
+      <ul class="clean-list">
+        <li data-i18n="bullet1">Small calculators and interactive tools</li>
+        <li data-i18n="bullet2">Simple business utilities</li>
+        <li data-i18n="bullet3">Clean, mobile-friendly web experiences</li>
+      </ul>
+    </div>
+    <form class="card contact-form" id="leadForm">
+      <h3 data-i18n="contactTitle">Start with a public social account</h3>
+      <p data-i18n="contactText">No email, phone number or payment information is required.</p>
+      <label><span data-i18n="leadName">Username / name</span><input id="leadName" maxlength="40" placeholder="Alex"></label>
+      <label><span data-i18n="leadPlatform">Social platform</span><select id="leadPlatform"><option>Instagram</option><option>TikTok</option><option>X / Twitter</option><option>Discord</option><option>Telegram</option><option>Other</option></select></label>
+      <label><span data-i18n="leadHandle">Public social username</span><input id="leadHandle" maxlength="80" placeholder="@yourusername"></label>
+      <button class="btn primary" type="submit" data-i18n="createRequest">Create contact request</button>
+      <div id="leadResult" class="lead-result hidden"></div>
+      <small class="form-note" data-i18n="formNote">Never enter passwords, private information or payment details.</small>
+    </form>
+  </section>
+
+  <section class="shell info-grid">
+    <article class="card" id="privacy">
+      <p class="eyebrow" data-i18n="privacyEyebrow">PRIVACY</p>
+      <h2 data-i18n="privacyTitle">Private by design.</h2>
+      <p data-i18n="privacyText">CarCost does not require an account, password, payment card or banking information. Calculator inputs are processed in your browser and are not stored in a CarCost database.</p>
+    </article>
+    <article class="card">
+      <p class="eyebrow" data-i18n="methodologyEyebrow">METHODOLOGY</p>
+      <h2 data-i18n="methodologyTitle">Estimates, not promises.</h2>
+      <p data-i18n="methodologyText">CarCost uses the values you enter to estimate financing, running costs and resale value. Actual costs vary by vehicle, driver and location.</p>
+    </article>
+  </section>
+
+  <section class="shell faq-block">
+    <p class="eyebrow">FAQ</p>
+    <details class="card"><summary data-i18n="faq1q">Is CarCost financial advice?</summary><p data-i18n="faq1a">No. It is a planning calculator designed to make costs easier to understand.</p></details>
+    <details class="card"><summary data-i18n="faq2q">Do you store calculator data?</summary><p data-i18n="faq2a">No CarCost database stores the values entered into the calculator.</p></details>
+    <details class="card"><summary data-i18n="faq3q">Is the first prototype always free?</summary><p data-i18n="faq3a">No. It is offered only for a limited number of suitable early projects.</p></details>
+  </section>
+</main>
+
+<footer><div class="shell footer-inner"><span>© CarCost</span><a href="./" data-i18n="backCalculator">Back to calculator</a></div></footer>
+<script src="studio-v5.js"></script>
+</body>
+</html>
