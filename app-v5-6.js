@@ -1,0 +1,85 @@
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id)?.value)||0);
+const colors=["#6ce5ba","#79b7ff","#f0c66e","#9a7cff","#5e738b"];
+
+const I={
+en:{navCalculator:"Calculator",navStudio:"About",eyebrow:"CAR OWNERSHIP CALCULATOR",heroTitle:"Understand the true cost of car ownership.",heroText:"Estimate the full cost of owning a car, or compare two vehicles side by side. CarCost combines financing, operating costs and resale value into a clear monthly and five-year view.",trustA:"No sign-up",trustB:"No payment details",trustC:"Runs in your browser",heroMetricLabel:"Live estimate",heroMetricSub:"estimated ownership cost / month",oneCar:"One car",oneCarSub:"Understand one vehicle",twoCars:"Compare two",twoCarsSub:"See which costs less",basics:"Basics",example:"Load example",region:"Region",currency:"Currency",distance:"Distance",powertrain:"Powertrain",price:"Car price",down:"Down payment",apr:"Loan APR (%)",term:"Loan term (years)",moreCosts:"More costs",insurance:"Insurance / year",maintenance:"Maintenance / year",tax:"Tax & registration / year",parking:"Parking & tolls / year",residual:"Estimated value after 5 years (%)",budget:"Budget check",optional:"Optional",income:"Take-home income / month",other:"Other expenses / month",result:"YOUR ESTIMATE",perMonth:"estimated ownership cost / month",fiveYear:"5-year cost",monthlyCash:"Monthly cash outflow",resaleValue:"Estimated resale value",costBreakdown:"Cost breakdown",fiveYearView:"5-year view",share:"Share result",reset:"Reset",wantMore:"DIGITAL TOOLS FOR EARLY CLIENTS",ctaTitle:"We design and build focused web tools for selected early-stage projects.",ctaText:"Learn about our approach, working principles and how to discuss a potential project.",meetStudio:"View our approach",privacy:"Privacy",ratingEyebrow:"QUICK FEEDBACK",ratingTitle:"How would you rate CarCost?",ratingText:"Choose a rating, then submit it securely in Google Forms.",ratingPlaceholder:"Optional: tell us what could be better",sendRating:"Continue to Google Forms",ratingRequired:"Choose a star rating first.",ratingSent:"Thank you — rating received.",formUnavailable:"Messaging is not connected yet.",mobileEstimate:"Live estimate",viewResults:"View results",cheaper:"costs less over 5 years",saving:"Estimated saving",finance:"Financing",energy:"Energy",ins:"Insurance",maint:"Maintenance",taxes:"Tax + parking",good:"Comfortable based on the values entered.",mid:"Manageable, but keep a healthy buffer.",tight:"This looks tight for your monthly budget.",high:"High pressure on your monthly budget."},
+el:{navCalculator:"Υπολογιστής",navStudio:"Σχετικά",eyebrow:"ΥΠΟΛΟΓΙΣΤΗΣ ΚΟΣΤΟΥΣ ΑΥΤΟΚΙΝΗΤΟΥ",heroTitle:"Κατανόησε το πραγματικό κόστος ιδιοκτησίας ενός αυτοκινήτου.",heroText:"Υπολόγισε το συνολικό κόστος ιδιοκτησίας ενός αυτοκινήτου ή σύγκρινε δύο οχήματα δίπλα-δίπλα. Το CarCost συνδυάζει χρηματοδότηση, λειτουργικά έξοδα και αξία μεταπώλησης σε μια καθαρή μηνιαία και πενταετή εικόνα.",trustA:"Χωρίς εγγραφή",trustB:"Χωρίς στοιχεία πληρωμής",trustC:"Λειτουργεί στον browser σου",heroMetricLabel:"Ζωντανή εκτίμηση",heroMetricSub:"εκτιμώμενο κόστος ιδιοκτησίας / μήνα",oneCar:"Ένα αυτοκίνητο",oneCarSub:"Κατανόησε ένα όχημα",twoCars:"Σύγκριση δύο",twoCarsSub:"Δες ποιο κοστίζει λιγότερο",basics:"Βασικά",example:"Φόρτωση παραδείγματος",region:"Περιοχή",currency:"Νόμισμα",distance:"Απόσταση",powertrain:"Κινητήριο σύστημα",price:"Τιμή αυτοκινήτου",down:"Προκαταβολή",apr:"Επιτόκιο δανείου (%)",term:"Διάρκεια δανείου (έτη)",moreCosts:"Περισσότερα έξοδα",insurance:"Ασφάλιση / έτος",maintenance:"Συντήρηση / έτος",tax:"Φόροι & άδεια / έτος",parking:"Στάθμευση & διόδια / έτος",residual:"Εκτιμώμενη αξία μετά από 5 έτη (%)",budget:"Έλεγχος προϋπολογισμού",optional:"Προαιρετικό",income:"Καθαρό εισόδημα / μήνα",other:"Άλλα έξοδα / μήνα",result:"Η ΕΚΤΙΜΗΣΗ ΣΟΥ",perMonth:"εκτιμώμενο κόστος ιδιοκτησίας / μήνα",fiveYear:"Κόστος 5 ετών",monthlyCash:"Μηνιαία εκροή",resaleValue:"Εκτιμώμενη αξία μεταπώλησης",costBreakdown:"Ανάλυση κόστους",fiveYearView:"Ορίζοντας 5 ετών",share:"Κοινοποίηση",reset:"Επαναφορά",wantMore:"ΨΗΦΙΑΚΑ ΕΡΓΑΛΕΙΑ ΓΙΑ ΠΡΩΤΑ PROJECTS",ctaTitle:"Σχεδιάζουμε και αναπτύσσουμε στοχευμένα web εργαλεία για επιλεγμένα πρώτα projects.",ctaText:"Δες την προσέγγισή μας, τις αρχές συνεργασίας και τον τρόπο επικοινωνίας για ένα πιθανό project.",meetStudio:"Δες την προσέγγισή μας",privacy:"Απόρρητο",ratingEyebrow:"ΓΡΗΓΟΡΟ FEEDBACK",ratingTitle:"Πώς θα βαθμολογούσες το CarCost;",ratingText:"Επίλεξε αστέρια και ολοκλήρωσε τη βαθμολογία στο Google Forms.",ratingPlaceholder:"Προαιρετικά: πες μας τι θα μπορούσε να γίνει καλύτερο",sendRating:"Συνέχεια στο Google Forms",ratingRequired:"Επίλεξε πρώτα έναν αριθμό αστεριών.",ratingSent:"Ευχαριστούμε — η βαθμολογία καταχωρήθηκε.",formUnavailable:"Η αποστολή μηνυμάτων δεν έχει συνδεθεί ακόμη.",mobileEstimate:"Ζωντανή εκτίμηση",viewResults:"Δες αποτελέσματα",cheaper:"κοστίζει λιγότερο σε 5 χρόνια",saving:"Εκτιμώμενη εξοικονόμηση",finance:"Χρηματοδότηση",energy:"Ενέργεια",ins:"Ασφάλιση",maint:"Συντήρηση",taxes:"Φόροι + στάθμευση",good:"Άνετη επιλογή με βάση τα στοιχεία που έβαλες.",mid:"Φαίνεται διαχειρίσιμο, αλλά κράτα καλό περιθώριο.",tight:"Φαίνεται πιεστικό για τον μηνιαίο προϋπολογισμό σου.",high:"Υψηλή πίεση στον μηνιαίο προϋπολογισμό σου."},
+"zh-CN":{navCalculator:"计算器",navStudio:"关于",eyebrow:"汽车持有成本计算器",heroTitle:"了解汽车持有的真实成本。",heroText:"估算一辆车的完整持有成本，或并排比较两辆车。CarCost 将融资、使用成本和转售价值整合为清晰的月度与五年视图。",trustA:"无需注册",trustB:"无需支付信息",trustC:"在浏览器中运行",heroMetricLabel:"实时估算",heroMetricSub:"预计每月持有成本",oneCar:"一辆车",oneCarSub:"了解单辆车成本",twoCars:"比较两辆",twoCarsSub:"查看哪辆成本更低",basics:"基本信息",example:"加载示例",region:"地区",currency:"货币",distance:"距离",powertrain:"动力类型",price:"车辆价格",down:"首付",apr:"贷款年利率 (%)",term:"贷款期限（年）",moreCosts:"更多费用",insurance:"保险 / 年",maintenance:"保养 / 年",tax:"税费与注册 / 年",parking:"停车与过路费 / 年",residual:"5 年后预计价值 (%)",budget:"预算检查",optional:"可选",income:"每月税后收入",other:"其他每月支出",result:"你的估算",perMonth:"预计每月持有成本",fiveYear:"5 年成本",monthlyCash:"每月现金支出",resaleValue:"预计转售价值",costBreakdown:"成本构成",fiveYearView:"5 年视图",share:"分享结果",reset:"重置",wantMore:"面向早期项目的数字工具",ctaTitle:"我们为精选早期项目设计并开发专注、实用的网页工具。",ctaText:"了解我们的工作方式、合作原则以及如何讨论潜在项目。",meetStudio:"查看我们的方式",privacy:"隐私",ratingEyebrow:"快速反馈",ratingTitle:"你会如何评价 CarCost？",ratingText:"选择星级，然后在 Google 表单中完成提交。",ratingPlaceholder:"可选：告诉我们哪里可以做得更好",sendRating:"前往 Google 表单",ratingRequired:"请先选择星级。",ratingSent:"谢谢，你的评分已记录。",formUnavailable:"消息功能尚未连接。",mobileEstimate:"实时估算",viewResults:"查看结果",cheaper:"5 年总成本更低",saving:"预计节省",finance:"融资",energy:"能源",ins:"保险",maint:"保养",taxes:"税费 + 停车",good:"根据你输入的数据，负担较轻。",mid:"看起来可以承受，但建议保留充足缓冲。",tight:"对你的月度预算来说有些紧张。",high:"对你的月度预算压力较大。"}};
+
+function lang(){const q=new URLSearchParams(location.search).get("lang");return I[q]?q:(localStorage.getItem("carcost_lang")||"en")}
+function applyLang(l){if(!I[l])l="en";localStorage.setItem("carcost_lang",l);document.documentElement.lang=l;$("language").value=l;document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(I[l][k])el.textContent=I[l][k]});document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{const k=el.dataset.i18nPlaceholder;if(I[l][k])el.placeholder=I[l][k]});document.querySelectorAll("[data-i18n-html]").forEach(el=>{const k=el.dataset.i18nHtml;if(I[l][k])el.innerHTML=I[l][k]});const u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u);calculate()}
+
+const money=v=>new Intl.NumberFormat("en",{style:"currency",currency:$("currency").value,maximumFractionDigits:0}).format(v||0);
+function payment(P,apr,years){const N=Math.round(years*12),r=apr/1200;if(!P||!N)return 0;if(!r)return P/N;return P*r*Math.pow(1+r,N)/(Math.pow(1+r,N)-1)}
+function balance(P,apr,years,k){const N=Math.round(years*12);k=Math.min(k,N);if(!P||k>=N)return 0;const r=apr/1200;if(!r)return P*(N-k)/N;const pay=payment(P,apr,years);return P*Math.pow(1+r,k)-pay*(Math.pow(1+r,k)-1)/r}
+function energyAnnual(p){const type=$(`${p}_type`).value,unit=$("distanceUnit").value,d=n(`${p}_distance`),eff=Math.max(.0001,n(`${p}_eff`)),price=n(`${p}_energyPrice`);if(type==="EV")return d*eff/100*price;if(unit==="km")return d*eff/100*price;return d/eff*price}
+function calc(p){const price=n(`${p}_price`),down=Math.min(price,n(`${p}_down`)),P=price-down,apr=n(`${p}_apr`),years=n(`${p}_years`),loan=payment(P,apr,years),monthsPaid=Math.min(60,Math.round(years*12)),remain=balance(P,apr,years,60),energy=energyAnnual(p),ins=n(`${p}_insurance`),maint=n(`${p}_maintenance`),tax=n(`${p}_tax`),park=n(`${p}_parking`),runningAnnual=energy+ins+maint+tax+park,resale=price*Math.min(100,n(`${p}_residual`))/100,five=down+loan*monthsPaid+remain+runningAnnual*5-resale,trueMonthly=five/60,cashMonthly=loan+runningAnnual/12;return{name:$(`${p}_name`).value||`Car ${p.toUpperCase()}`,price,loan,energy,ins,maint,tax,park,resale,five,trueMonthly,cashMonthly}}
+
+let mode="single";
+function setMode(m){mode=m==="compare"?"compare":"single";const c=mode==="compare";$("singleMode").classList.toggle("active",!c);$("compareMode").classList.toggle("active",c);$("singleMode").setAttribute("aria-pressed",String(!c));$("compareMode").setAttribute("aria-pressed",String(c));$("carBPanel").classList.toggle("hidden",!c);$("compareResult").classList.toggle("hidden",!c);$("winner").classList.toggle("hidden",!c);calculate()}
+
+function renderChart(r){
+ const items=[
+  [I[lang()].finance,Math.max(0,r.loan*60),colors[0]],
+  [I[lang()].energy,r.energy*5,colors[1]],
+  [I[lang()].ins,r.ins*5,colors[2]],
+  [I[lang()].maint,r.maint*5,colors[3]],
+  [I[lang()].taxes,(r.tax+r.park)*5,colors[4]]
+ ];
+ const total=Math.max(1,items.reduce((s,x)=>s+x[1],0));
+ $("aBar").innerHTML=items.map((x,i)=>`<i style="width:${x[1]/total*100}%;background:${x[2]}"></i>`).join("");
+ $("aLegend").innerHTML=items.map(x=>`<div class="legend-item"><i class="legend-dot" style="background:${x[2]}"></i><span>${x[0]}</span><strong>${money(x[1])}</strong></div>`).join("");
+ const ps=items.map(x=>x[1]/total*100);
+ $("aDonut").style.setProperty("--p1",ps[0]);$("aDonut").style.setProperty("--p2",ps[1]);$("aDonut").style.setProperty("--p3",ps[2]);$("aDonut").style.setProperty("--p4",ps[3]);$("aDonut").style.setProperty("--p5",ps[4]);
+ $("aDonutCenter").textContent=money(total/60)+"/mo";
+}
+
+function renderBudget(a,b){const income=n("income"),other=n("otherExpenses"),box=$("affordability");if(!income){box.classList.add("hidden");return}const target=mode==="compare"?Math.max(a.cashMonthly,b.cashMonthly):a.cashMonthly,left=income-other-target,ratio=target/income;let msg=I[lang()].good;if(left<0||ratio>.35)msg=I[lang()].high;else if(ratio>.28||left/income<.15)msg=I[lang()].tight;else if(ratio>.2)msg=I[lang()].mid;box.classList.remove("hidden");box.innerHTML=`<strong>${msg}</strong><p>${money(Math.max(0,left))} left each month after the values entered.</p>`}
+
+function calculate(){
+ const a=calc("a"),b=calc("b"),l=lang();
+ $("heroMonthly").textContent=money(a.trueMonthly);if($("mobileMonthly"))$("mobileMonthly").textContent=money(a.trueMonthly);
+ $("a_resultName").textContent=a.name;$("a_trueMonthly").textContent=money(a.trueMonthly);$("a_fiveYear").textContent=money(a.five);$("a_cashMonthly").textContent=money(a.cashMonthly);$("a_resale").textContent=money(a.resale);
+ renderChart(a);renderBudget(a,b);
+ if(mode==="compare"){
+   const diff=Math.abs(a.five-b.five),winner=a.five<=b.five?a:b,other=a.five<=b.five?b:a;
+   $("winner").innerHTML=diff<1?`<strong>Almost equal over 5 years.</strong>`:`<strong>${winner.name} ${I[l].cheaper}.</strong><span>${I[l].saving}: ${money(diff)}</span>`;
+   $("aCompareName").textContent=a.name;$("bCompareName").textContent=b.name;$("aCompareFive").textContent=money(a.five);$("bCompareFive").textContent=money(b.five);
+   const total=Math.max(1,a.five+b.five);$("aTrack").style.width=`${a.five/total*100}%`;$("bTrack").style.width=`${b.five/total*100}%`;
+   $("comparisonInsight").textContent=diff<1?"The two estimates are nearly identical.":`${winner.name} is estimated to save ${money(diff)} over five years compared with ${other.name}.`;
+ }
+}
+function updateLabels(p){const ev=$(`${p}_type`).value==="EV",mi=$("distanceUnit").value==="mi";document.querySelector(`[data-car="${p}"] .distance-label span`).textContent=`Distance / year (${mi?"miles":"km"})`;document.querySelector(`[data-car="${p}"] .eff-label span`).textContent=ev?`Efficiency (kWh/100 ${mi?"miles":"km"})`:(mi?"Fuel economy (MPG, US)":"Fuel economy (L/100 km)");document.querySelector(`[data-car="${p}"] .energy-label span`).textContent=ev?"Electricity price / kWh":(mi?"Fuel price / US gallon":"Fuel price / litre")}
+function unitChanged(){const mi=$("distanceUnit").value==="mi";["a","b"].forEach(p=>{updateLabels(p);$(`${p}_distance`).value=mi?10000:15000;if($(`${p}_type`).value!=="EV"){$(`${p}_eff`).value=mi?35:7;$(`${p}_energyPrice`).value=mi?3.8:1.55}});calculate()}
+function typeChanged(p){const ev=$(`${p}_type`).value==="EV",mi=$("distanceUnit").value==="mi";if(ev){$(`${p}_eff`).value=mi?30:18;$(`${p}_energyPrice`).value=.28}else{$(`${p}_eff`).value=mi?35:7;$(`${p}_energyPrice`).value=mi?3.8:1.55}updateLabels(p);calculate()}
+function regionChanged(){const map={eu:["EUR","km"],uk:["GBP","mi"],us:["USD","mi"],ca:["CAD","km"],au:["AUD","km"]},v=map[$("regionPreset").value];if(!v)return;$("currency").value=v[0];$("distanceUnit").value=v[1];unitChanged()}
+function example(){setMode("compare");$("a_name").value="Used petrol";$("a_price").value=22000;$("a_down").value=5000;$("a_eff").value=7.2;$("b_name").value="New EV";$("b_type").value="EV";$("b_price").value=35000;$("b_down").value=6000;$("b_eff").value=17;$("b_energyPrice").value=.28;$("b_maintenance").value=400;$("b_tax").value=120;["a","b"].forEach(updateLabels);calculate()}
+function reset(){location.href=location.pathname+"?lang="+lang()}
+function share(){const a=calc("a"),b=calc("b"),text=mode==="compare"?`CarCost: ${a.name} ${money(a.five)} vs ${b.name} ${money(b.five)} over 5 years.`:`CarCost: ${a.name} estimated at ${money(a.five)} over 5 years.`;if(navigator.share)navigator.share({title:"CarCost",text,url:location.href}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(location.href).then(()=>{$("shareBtn").textContent="Link copied";setTimeout(()=>applyLang(lang()),1200)});else prompt("Copy this link:",location.href)}
+
+document.querySelectorAll("input,select").forEach(el=>{if(!["language","regionPreset","distanceUnit","a_type","b_type"].includes(el.id)){el.addEventListener("input",calculate);el.addEventListener("change",calculate)}})
+$("language").addEventListener("change",e=>applyLang(e.target.value));$("singleMode").addEventListener("click",()=>setMode("single"));$("compareMode").addEventListener("click",()=>setMode("compare"));$("regionPreset").addEventListener("change",regionChanged);$("distanceUnit").addEventListener("change",unitChanged);$("a_type").addEventListener("change",()=>typeChanged("a"));$("b_type").addEventListener("change",()=>typeChanged("b"));$("exampleBtn").addEventListener("click",example);$("shareBtn").addEventListener("click",share);$("resetBtn").addEventListener("click",reset);if($("mobileResultsBtn"))$("mobileResultsBtn").addEventListener("click",()=>document.querySelector(".results-panel").scrollIntoView({behavior:"smooth",block:"start"}));
+["a","b"].forEach(updateLabels);applyLang(lang());setMode("single");
+
+// Google Forms is the submission destination. No rating is stored on this site.
+// A rating selected here is a visual preview only; visitors choose their answer in Google Forms.
+const GOOGLE_RATING_FORM="https://docs.google.com/forms/d/e/1FAIpQLSe_wxvQipECZMwtdKYGRTH2RwsSjouT46nAG0EJkw85YkODxw/viewform";
+let selectedRating=0;
+document.querySelectorAll(".star").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    selectedRating=Number(btn.dataset.rating);
+    document.querySelectorAll(".star").forEach(s=>{
+      const rating=Number(s.dataset.rating);
+      s.classList.toggle("selected",rating<=selectedRating);
+      s.setAttribute("aria-checked",String(rating===selectedRating));
+    });
+    $("ratingStatus").textContent="";
+  });
+});
+$("ratingForm")?.addEventListener("submit",e=>{
+  e.preventDefault();
+  if(!selectedRating){$("ratingStatus").textContent=I[lang()].ratingRequired;return;}
+  // The user must select the same score and press Submit on Google Forms.
+  window.location.assign(GOOGLE_RATING_FORM);
+});
