@@ -7,19 +7,18 @@
   <meta name="theme-color" content="#071019">
   <title>CarCost — Real car ownership cost calculator</title>
   <meta property="og:type" content="website">
-<meta property="og:title" content="CarCost — Real Car Ownership Cost Calculator">
-<meta property="og:description" content="Compare the true cost of owning a car, including financing, fuel or electricity, insurance, maintenance and resale value.">
-<meta property="og:url" content="https://carcosttools.github.io/CarCost/">
-<meta property="og:image" content="https://carcosttools.github.io/CarCost/CarCost_Social_Preview_Cover.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CarCost — Real Car Ownership Cost Calculator">
-<meta name="twitter:description" content="Compare the true cost of owning a car, including financing, fuel or electricity, insurance, maintenance and resale value.">
-<meta name="twitter:image" content="https://carcosttools.github.io/CarCost/CarCost_Social_Preview_Cover.png">
+  <meta property="og:title" content="CarCost — Real Car Ownership Cost Calculator">
+  <meta property="og:description" content="Compare the true cost of owning a car, including financing, fuel or electricity, insurance, maintenance and resale value.">
+  <meta property="og:url" content="https://carcosttools.github.io/CarCost/">
+  <meta property="og:image" content="https://carcosttools.github.io/CarCost/CarCost_Social_Preview_Cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CarCost — Real Car Ownership Cost Calculator">
+  <meta name="twitter:description" content="Compare the true cost of owning a car, including financing, fuel or electricity, insurance, maintenance and resale value.">
+  <meta name="twitter:image" content="https://carcosttools.github.io/CarCost/CarCost_Social_Preview_Cover.png">
   <link rel="canonical" href="https://carcosttools.github.io/CarCost/">
-  <link rel="stylesheet" href="styles-v5-4.css">
+  <link rel="stylesheet" href="styles-v5-5.css">
 </head>
 <body>
 <header class="topbar">
@@ -27,7 +26,7 @@
     <a class="brand" href="./">CarCost</a>
     <nav class="nav-links" aria-label="Main navigation">
       <a class="active" href="./" data-i18n="navCalculator">Calculator</a>
-      <a href="studio.html" data-i18n="navStudio">About & Studio</a>
+      <a href="studio.html" data-i18n="navStudio">About</a>
     </nav>
     <select id="language" class="language" aria-label="Language">
       <option value="en">EN</option>
@@ -212,7 +211,7 @@
         <h2 data-i18n="ratingTitle">How would you rate CarCost?</h2>
         <p data-i18n="ratingText">A quick rating helps us improve the experience.</p>
       </div>
-      <form id="ratingForm" class="rating-form">
+      <form id="ratingForm" class="rating-form compact-rating">
         <div class="stars" id="ratingStars" role="radiogroup" aria-label="Rate CarCost from 1 to 5 stars">
           <button type="button" class="star" data-rating="1" aria-label="1 star">★</button>
           <button type="button" class="star" data-rating="2" aria-label="2 stars">★</button>
@@ -221,23 +220,11 @@
           <button type="button" class="star" data-rating="5" aria-label="5 stars">★</button>
         </div>
         <input type="hidden" id="ratingValue" name="rating" value="">
-        <textarea id="ratingComment" name="comment" maxlength="500" rows="3" data-i18n-placeholder="ratingPlaceholder" placeholder="Optional: tell us what could be better"></textarea>
         <div class="rating-actions">
           <button type="submit" class="btn secondary" data-i18n="sendRating">Send rating</button>
           <span class="form-status" id="ratingStatus" aria-live="polite"></span>
         </div>
       </form>
-    </div>
-  </section>
-
-  <section class="shell final-cta">
-    <div class="card">
-      <div>
-        <p class="eyebrow" data-i18n="wantMore">DIGITAL TOOLS FOR EARLY CLIENTS</p>
-        <h2 data-i18n="ctaTitle">We design and build focused web tools for selected early-stage projects.</h2>
-        <p data-i18n="ctaText">Learn about our approach, working principles and how to discuss a potential project.</p>
-      </div>
-      <a class="btn secondary link-btn" href="studio.html" data-i18n="meetStudio">View our approach</a>
     </div>
   </section>
 </main>
@@ -252,6 +239,6 @@
   <button type="button" class="btn primary mobile-result-btn" id="mobileResultsBtn" data-i18n="viewResults">View results</button>
 </div>
 
-<script src="app-v5-4.js"></script>
+<script src="app-v5-5.js"></script>
 </body>
 </html>
